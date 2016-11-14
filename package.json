@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AndreevAE/long-arithmetic-javascript/issues"
   },
-  "homepage": "https://github.com/AndreevAE/long-arithmetic-javascript#readme"
+  "homepage": "https://github.com/AndreevAE/long-arithmetic-javascript#readme",
+  "dependencies": {
+    "eslint": "^3.10.0"
+  }
 }
