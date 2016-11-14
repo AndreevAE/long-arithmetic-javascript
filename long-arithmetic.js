@@ -1,4 +1,10 @@
-// operation of addition for using
+/**
+ * operation of addition for using
+ *
+ * @param {any} operand1
+ * @param {any} operand2
+ * @returns
+ */
 exports.addition = function addition(operand1, operand2) {
     if (isNegative(operand1) && isNegative(operand2)) {
     // add two negative numbers
@@ -15,20 +21,38 @@ exports.addition = function addition(operand1, operand2) {
     }
 };
 
-// operation of subtraction for using
+/**
+ * operation of subtraction for using
+ *
+ * @param {any} operand1
+ * @param {any} operand2
+ * @returns
+ */
 exports.subtraction = function subtraction(operand1, operand2) {
     var resultOfComparing = compare(operand1, operand2);
     // TODO
     return sub(operand1, operand2);
 };
 
-// operation of multiplication for using
+/**
+ * operation of multiplication for using
+ *
+ * @param {any} operand1
+ * @param {any} operand2
+ * @returns
+ */
 exports.multiplication = function multiplication(operand1, operand2) {
     return +operand1 * +operand2;
     // TODO
 };
 
-// comparing numbers return 1, 0, -1
+/**
+ * comparing numbers return 1, 0, -1
+ *
+ * @param {any} operand1
+ * @param {any} operand2
+ * @returns
+ */
 function compare(operand1, operand2) {
     var len1 = operand1.length;
     var len2 = operand2.length;
@@ -49,7 +73,12 @@ function compare(operand1, operand2) {
     }
 }
 
-// isNegative
+/**
+ * isNegative
+ *
+ * @param {any} operand
+ * @returns
+ */
 function isNegative(operand) {
     if (operand.charAt(0) === "-") {
         return true;
@@ -57,7 +86,12 @@ function isNegative(operand) {
     return false;
 }
 
-// + to - or - to +
+/**
+ * + to - or - to +
+ *
+ * @param {any} operand
+ * @returns
+ */
 function invertSign(operand) {
     if (isNegative(operand)) {
         // - to +
@@ -68,7 +102,13 @@ function invertSign(operand) {
     }
 }
 
-// positive operand1 + positive operand2
+/**
+ * positive operand1 + positive operand2
+ *
+ * @param {any} operand1
+ * @param {any} operand2
+ * @returns
+ */
 function add(operand1, operand2) {
     var len1 = operand1.length;
     var len2 = operand2.length;
@@ -86,7 +126,13 @@ function add(operand1, operand2) {
     return result;
 }
 
-// operand1 - operand2
+/**
+ * operand1 - operand2
+ *
+ * @param {any} operand1
+ * @param {any} operand2
+ * @returns
+ */
 function sub(operand1, operand2) {
     var len1 = operand1.length;
     var len2 = operand2.length;
