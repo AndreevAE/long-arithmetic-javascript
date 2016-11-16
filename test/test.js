@@ -108,12 +108,12 @@ describe("multiplication", function() {
         assert.equal(operation.multiplication("-1", "-1"), "1");
     });
 
-    it("0 * (-1) = (-1)", function() {
-        assert.equal(operation.multiplication("0", "-1"), "-1");
+    it("0 * (-1) = 0", function() {
+        assert.equal(operation.multiplication("0", "-1"), "0");
     });
 
-    it("(-1) * 0 = (-1)", function() {
-        assert.equal(operation.multiplication("-1", "0"), "-1");
+    it("(-1) * 0 = 0", function() {
+        assert.equal(operation.multiplication("-1", "0"), "0");
     });
 
     it("0 * 0 = 0", function() {
