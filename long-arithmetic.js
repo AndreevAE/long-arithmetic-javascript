@@ -191,7 +191,16 @@ function checkZero(operand) {
  */
 function trim(operand) {
     // TODO maybe merge with checkZero
-    return operand;
+    var len = operand.length;
+
+    for (var i = 0; i < len - 2; i++) {
+        if (operand.charAt(i) !== "0") {
+            break;
+        }
+    }
+
+    var result = operand.slice(i);
+    return result;
 }
 
 /**
@@ -282,9 +291,11 @@ function wrapSub(operand1, operand2) {
  * @param {any} operand2
  */
 function mult(operand1, operand2) {
+
     // TODO
     var result = (+operand1 * +operand2) + "";
     return result;
+
 }
 
 /**
@@ -295,4 +306,18 @@ function mult(operand1, operand2) {
  */
 function multOneDigit(operand1, operand2) {
 
+    // TODO
+    var result;
+    result = (+operand1 * +operand2) + "";
+    return result;
+
+}
+
+/**
+ * shift operand to left with adding zero
+ *
+ * @param {any} operand
+ */
+function shiftToLeft(operand) {
+    // TODO
 }
