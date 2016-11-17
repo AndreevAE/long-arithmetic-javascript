@@ -234,7 +234,7 @@ function sub(operand1, operand2) {
     var len1 = operand1.length;
     var len2 = operand2.length;
     var result = "";
-    var digit = 10;
+    var digit = 0;
 
     for (var i = len1 - 1, j = len2 - 1; i >= 0 && j >= 0; i-- , j--) {
         var diffOfDigits = +operand1.charAt(i) - +operand2.charAt(j) + 10 + digit;
@@ -243,14 +243,10 @@ function sub(operand1, operand2) {
         digit = Math.floor(diffOfDigits / 10) - 1;
     }
 
-    // TODO carry
     for (i; i >= 0; i--) {
-        result = operand1.charAt(i) + result;
+        result = +operand1.charAt(i) + digit + result;
+        digit = 0;
     }
-
-    // for (j; j >= 0; j--) {
-    //     result = operand2.charAt(j) + result;
-    // }
 
     return result;
 }
@@ -289,4 +285,14 @@ function mult(operand1, operand2) {
     // TODO
     var result = (+operand1 * +operand2) + "";
     return result;
+}
+
+/**
+ * positive operand1 * positive digit operand2
+ *
+ * @param {any} operand1
+ * @param {any} operand2
+ */
+function multOneDigit(operand1, operand2) {
+
 }
