@@ -24,7 +24,7 @@ exports.addition = function addition(operand1, operand2) {
     }
 
     // TODO maybe replace to trim
-    return checkZero(result);
+    return checkZero(trim(result));
 
 };
 
@@ -54,7 +54,7 @@ exports.subtraction = function subtraction(operand1, operand2) {
     }
 
     // TODO maybe replace to trim
-    return checkZero(result);
+    return checkZero(trim(result));
 
 };
 
@@ -84,7 +84,7 @@ exports.multiplication = function multiplication(operand1, operand2) {
     }
 
     // TODO maybe replace to trim
-    return checkZero(result);
+    return checkZero(trim(result));
 
 };
 
@@ -272,6 +272,7 @@ function wrapSub(operand1, operand2) {
     var moduleOfOperand1 = moduleOf(operand1);
     var moduleOfOperand2 = moduleOf(operand2);
     var comparingOperands = compare(moduleOfOperand1, moduleOfOperand2);
+
     switch (comparingOperands) {
     case -1:
         return invertSign(sub(moduleOfOperand2, moduleOfOperand1));
@@ -292,8 +293,17 @@ function wrapSub(operand1, operand2) {
  */
 function mult(operand1, operand2) {
 
-    // TODO
-    var result = (+operand1 * +operand2) + "";
+    var len2 = operand2.length;
+    var result = "";
+
+    for (var j = len2 - 1; j >= 0; j--) {
+
+        var addendum = multOneDigit(operand1, operand2.charAt(j));
+        addendum = shiftToLeft(addendum, len2 - j - 1);
+        result = add(result, addendum);
+
+    }
+
     return result;
 
 }
@@ -306,18 +316,42 @@ function mult(operand1, operand2) {
  */
 function multOneDigit(operand1, operand2) {
 
-    // TODO
-    var result;
-    result = (+operand1 * +operand2) + "";
+    var len1 = operand1.length;
+    var result = "";
+    var carry = 0;
+
+    for (var i = len1 - 1; i >= 0; i--) {
+
+        var multOfDigits = +operand1.charAt(i) * +operand2 + carry;
+        carry = multOfDigits % 10;
+        result = carry + result;
+        carry = Math.floor(multOfDigits / 10);
+
+    }
+
+    if (carry) {
+        result = carry + result;
+    }
+
     return result;
 
 }
 
 /**
- * shift operand to left with adding zero
+ * shift operand to left by adding count zeroes
  *
  * @param {any} operand
+ * @param {any} count
+ * @returns
  */
-function shiftToLeft(operand) {
-    // TODO
+function shiftToLeft(operand, count) {
+
+    var result = operand;
+
+    for (var i = 0; i < count; i++) {
+        result +=  "0";
+    }
+
+    return result;
+
 }
