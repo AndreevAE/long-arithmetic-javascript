@@ -1,1 +1,1 @@
-var operation = require("./long-arithmetic.js");
+var longArithmetic = require("./long-arithmetic.js");
